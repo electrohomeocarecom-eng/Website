@@ -167,6 +167,17 @@
 
 .eh-mini-card--grid {
   min-width: 0;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  min-height: 224px;
+  padding: 12px 10px 14px;
+}
+
+.eh-mini-card--grid .product-img-wrap {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 16px;
 }
 
 .eh-tag {
@@ -186,11 +197,14 @@
   font-size: 12.5px;
   font-weight: 600;
   color: var(--eh-text);
+  line-height: 1.35;
 }
 
 .eh-mini-price {
-  font-size: 13px;
+  font-family: "Segoe UI", "Noto Sans", sans-serif;
+  font-size: 17px;
   font-weight: 700;
+  line-height: 1.2;
   color: var(--eh-primary);
 }
 
@@ -200,16 +214,30 @@
   background: var(--eh-white);
   border: 1px solid var(--eh-border);
   border-radius: var(--eh-radius-md);
-  padding: 14px 12px 12px;
+  padding: 16px 14px 14px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 10px;
+  min-height: 244px;
 }
 
 .eh-product-card-top {
   display: flex;
   justify-content: center;
-  margin-bottom: 4px;
+  align-items: center;
+  width: 100%;
+  min-height: 92px;
+  margin-bottom: 2px;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.eh-product-card-top .product-img-wrap {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 16px;
 }
 
 .eh-heart-btn {
@@ -225,25 +253,37 @@
 .eh-product-name {
   font-size: 13px;
   font-weight: 600;
+  text-align: center;
+  line-height: 1.35;
 }
 
 .eh-product-sub {
   font-size: 11px;
   color: var(--eh-text-muted);
-  margin-top: -4px;
+  margin-top: 3px;
+  text-align: center;
+}
+
+.eh-product-name-wrap {
+  width: 100%;
+  min-height: 42px;
+  text-align: center !important;
 }
 
 .eh-product-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2px;
+  width: 100%;
+  margin-top: auto;
 }
 
 .eh-price {
+  font-family: "Segoe UI", "Noto Sans", sans-serif;
   font-weight: 700;
   color: var(--eh-primary);
-  font-size: 14px;
+  font-size: 17px;
+  line-height: 1.2;
 }
 
 .eh-round-add {

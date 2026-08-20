@@ -50,7 +50,7 @@ export default function CategoryProducts() {
                 <button
                   className="eh-product-name-wrap"
                   onClick={() => navigate(`/product/${p.id}`)}
-                  style={{ textAlign: "left", background: "none", border: "none", padding: 0 }}
+                  style={{ background: "none", border: "none", padding: 0 }}
                 >
                   <div className="eh-product-name">{p.name}</div>
                   <div className="eh-product-sub">Face Drops</div>

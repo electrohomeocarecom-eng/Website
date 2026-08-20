@@ -5,8 +5,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px 0;
+  padding: 28px 16px;
   margin-bottom: 18px;
+}
+
+.eh-pd-product-image {
+  width: min(280px, 100%) !important;
+  height: min(280px, 100vw - 72px) !important;
+  border-radius: 24px;
 }
 
 .eh-pd-hero .bottle-icon-wrap {

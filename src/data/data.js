@@ -3,9 +3,9 @@
 // every component reads through these named exports only.
 
 export const categories = [
-  { id: "face", name: "Face Care", tagline: "Natural care for glowing skin", count: 24 },
   { id: "hair", name: "Hair Care", tagline: "Strength & nourishment for beautiful hair", count: 18 },
   { id: "lip", name: "Lip Care", tagline: "Gentle care for soft, healthy lips", count: 12 },
+  { id: "face", name: "Face Care", tagline: "Natural care for glowing skin", count: 24 },
   { id: "foot", name: "Foot Care", tagline: "Comfort & care for tired feet", count: 10 },
   { id: "body", name: "Body Care", tagline: "Complete care for your body", count: 26 }
 ];
@@ -39,13 +39,7 @@ export const products = [
   { id: "lip-shield", name: "Lip Shield", category: "lip", tag: "NEW", price: 150, desc: "Protects lips against harsh weather and dryness." },
 
   // Foot
-  { id: "crack-heel-care", name: "Crack Heel Care", category: "foot", tag: "NEW", price: 150, desc: "Softens rough, cracked heels with regular use." },
-  { id: "foot-odour-care", name: "Foot Odour Care", category: "foot", tag: "NEW", price: 150, desc: "Helps control foot odour and keeps feet fresh." },
-
-  // Body
-  
-  // Wellness
-  
+  // Body  
 ];
 
 export const trendingIds = ["rhus-tox", "natrum-mur", "arnica-montana"];

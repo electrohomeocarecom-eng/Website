@@ -48,8 +48,6 @@
 }
 
 .eh-back-btn--light {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: transparent;
   color: var(--eh-white);
 }
 
@@ -151,8 +149,15 @@
 }
 
 .eh-menu-icon {
-  font-size: 15px;
-  width: 20px;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 24px;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
 }
 
 .eh-menu-label {

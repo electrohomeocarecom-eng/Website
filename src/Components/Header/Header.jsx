@@ -81,7 +81,7 @@ export default function Header({ variant = "page", title = "" }) {
         onClick={() => navigate(-1)}
         aria-label="Go back"
       >
-        &gt;
+        &lt;
       </button>
       <h1 className="eh-header-title">{title}</h1>
       <button

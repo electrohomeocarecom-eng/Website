@@ -44,7 +44,13 @@ export default function ProductDetails() {
           >
             {liked ? "♥" : "♡"}
           </button>
-          <ProductImage category={product.category} index={getProductImageIndex(product)} alt={product.name} size={180} />
+          <ProductImage
+            category={product.category}
+            index={getProductImageIndex(product)}
+            alt={product.name}
+            size={280}
+            className="eh-pd-product-image"
+          />
         </div>
 
         <div className="eh-pd-title-row">

@@ -58,7 +58,7 @@ export default function Profile() {
     <div className="eh-screen">
       <div className="eh-profile-header">
         <button className="eh-back-btn eh-back-btn--light" onClick={() => navigate(-1)}>
-          &gt;
+          &lt;
         </button>
         <img className="eh-profile-brand" src={brand} alt="Electro Homeo Care" />
         <button

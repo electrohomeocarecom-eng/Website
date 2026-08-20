@@ -15,7 +15,6 @@
   position: relative;
   background: linear-gradient(135deg, var(--eh-primary) 0%, var(--eh-primary-dark) 100%);
   color: var(--eh-white);
-  border-radius: 24px 24px 0 0;
   min-height: 80px;
   padding: 16px 20px;
 }
@@ -57,8 +56,8 @@
 
 .eh-brand-wordmark {
   display: block;
-  width: 122px;
-  height: 50px;
+  width: 152px;
+  height: 40px;
   margin-left: 10px;
 }
 
@@ -90,16 +89,25 @@
 }
 
 .eh-back-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--eh-border);
-  background: var(--eh-white);
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--eh-white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  flex: 0 0 34px;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 4px 8px;
+  flex: 0 0 auto;
+}
+
+.eh-back-btn:hover,
+.eh-back-btn:focus-visible {
+  color: var(--eh-primary-light);
 }
 
 .eh-icon-btn {

@@ -12,6 +12,13 @@
   font-size: 12px;
   font-weight: 600;
   color: var(--eh-text);
+  cursor: pointer;
+}
+
+.eh-filter-btn--active {
+  background: var(--eh-primary);
+  border-color: var(--eh-primary);
+  color: var(--eh-white);
 }
 
 .eh-filter-count {

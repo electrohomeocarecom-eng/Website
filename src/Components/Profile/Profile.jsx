@@ -5,15 +5,34 @@ import brand from "../../asset/brand.png";
 import "./Profile.css";
 
 const MENU = [
-  { label: "My Orders", icon: "▤", to: "/orders" },
-  { label: "My Addresses", icon: "📍", to: "/addresses" },
-  { label: "Payment Methods", icon: "💳", to: "/payment-methods" },
-  { label: "Wishlist", icon: "♡", to: "/wishlist" },
-  { label: "Notifications", icon: "🔔", to: "/notifications" },
-  { label: "Help & Support", icon: "❔", to: "/help-support" },
-  { label: "About Electro Homeo", icon: "ℹ", to: "/about" },
-  { label: "Logout", icon: "⏻", danger: true },
+  { label: "My Orders", icon: "orders", to: "/orders" },
+  { label: "My Addresses", icon: "address", to: "/addresses" },
+  { label: "Payment Methods", icon: "payment", to: "/payment-methods" },
+  { label: "Wishlist", icon: "wishlist", to: "/wishlist" },
+  { label: "Notifications", icon: "notifications", to: "/notifications" },
+  { label: "Help & Support", icon: "help", to: "/help-support" },
+  { label: "About Electro Homeo", icon: "about", to: "/about" },
+  { label: "Logout", icon: "logout", danger: true },
 ];
+
+const ICON_PATHS = {
+  orders: "M5 4h14v16H5z M8 8h8 M8 12h8 M8 16h5",
+  address: "M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10z M12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z",
+  payment: "M3 6h18v12H3z M3 10h18 M7 15h4",
+  wishlist: "M20.8 8.6c0 5.4-8.8 10.4-8.8 10.4S3.2 14 3.2 8.6A4.6 4.6 0 0 1 12 6.4a4.6 4.6 0 0 1 8.8 2.2z",
+  notifications: "M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9 M10 21h4",
+  help: "M9.5 9a2.5 2.5 0 1 1 4.2 1.8c-1.1 1-1.7 1.4-1.7 3.2 M12 18h.01",
+  about: "M12 17v-5 M12 8h.01 M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z",
+  logout: "M9 5H5v14h4 M14 8l4 4-4 4 M18 12H9",
+};
+
+function MenuIcon({ name }) {
+  return (
+    <svg className="eh-menu-svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d={ICON_PATHS[name]} />
+    </svg>
+  );
+}
 
 const HEADER_MENU = [
   { label: "Account & Profile", path: "/profile" },
@@ -148,7 +167,9 @@ export default function Profile() {
               className={`eh-menu-row ${item.danger ? "eh-menu-row--danger" : ""}`}
               onClick={() => item.to && navigate(item.to)}
             >
-              <span className="eh-menu-icon">{item.icon}</span>
+              <span className="eh-menu-icon">
+                <MenuIcon name={item.icon} />
+              </span>
               <span className="eh-menu-label">{item.label}</span>
               {!item.danger && <span className="eh-cat-row-arrow">›</span>}
             </button>

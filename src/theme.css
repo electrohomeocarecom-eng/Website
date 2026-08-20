@@ -1,0 +1,57 @@
+:root {
+  /* Brand palette — pulled from the Electro Homeo Care mockups */
+  --eh-primary: #6D28B8;
+  --eh-primary-dark: #4E1D89;
+  --eh-primary-light: #F3E9FC;
+  --eh-accent-pink: #FCE9EF;
+  --eh-text: #1F1730;
+  --eh-text-muted: #85809B;
+  --eh-border: #ECE7F5;
+  --eh-bg: #FAF9FC;
+  --eh-white: #FFFFFF;
+  --eh-success-bg: #E7F8ED;
+  --eh-success: #1E9E4B;
+  --eh-warning-bg: #FEF3E2;
+  --eh-warning: #E0900B;
+  --eh-info-bg: #E9F1FF;
+  --eh-info: #2F6FE0;
+  --eh-danger-bg: #FDEAEA;
+  --eh-danger: #E0432F;
+
+  --eh-radius-sm: 10px;
+  --eh-radius-md: 16px;
+  --eh-radius-lg: 22px;
+  --eh-radius-pill: 999px;
+
+  --eh-shadow-card: 0 6px 20px rgba(78, 29, 137, 0.08);
+  --eh-shadow-float: 0 10px 30px rgba(78, 29, 137, 0.16);
+
+  --eh-font: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--eh-font);
+  background: var(--eh-bg);
+  color: var(--eh-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

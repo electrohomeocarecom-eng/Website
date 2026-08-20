@@ -1,0 +1,136 @@
+.eh-search-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-pill);
+  padding: 12px 14px;
+  margin-top: 0;
+  box-shadow: var(--eh-shadow-card);
+}
+
+.eh-search-icon {
+  font-size: 14px;
+}
+
+.eh-search-placeholder {
+  flex: 1;
+  text-align: left;
+  color: var(--eh-text-muted);
+  font-size: 13px;
+}
+
+.eh-search-cat {
+  background: var(--eh-primary-light);
+  color: var(--eh-primary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: var(--eh-radius-pill);
+}
+
+.eh-offer-banner {
+  margin-top: 18px;
+  border-radius: var(--eh-radius-lg);
+  background: linear-gradient(120deg, #F4EAFB 0%, #FBEAF1 100%);
+  padding: 22px 20px;
+  min-height: 130px;
+  display: flex;
+  align-items: flex-end;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+.eh-offer-eyebrow {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--eh-primary);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.eh-offer-copy h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  color: var(--eh-primary-dark);
+  letter-spacing: 1px;
+}
+
+.eh-offer-copy p {
+  margin: 0 0 12px;
+  font-size: 12px;
+  color: var(--eh-text-muted);
+}
+
+.eh-dots {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.eh-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--eh-border);
+}
+
+.eh-dot--active {
+  background: var(--eh-primary);
+  width: 16px;
+  border-radius: var(--eh-radius-pill);
+}
+
+.eh-cat-pill-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-top: 18px;
+  scrollbar-width: none;
+}
+
+.eh-cat-pill-row::-webkit-scrollbar {
+  display: none;
+}
+
+.eh-cat-pill {
+  border: 1px solid var(--eh-border);
+  background: var(--eh-white);
+  color: var(--eh-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--eh-radius-pill);
+  white-space: nowrap;
+}
+
+.eh-cat-pill--active {
+  background: var(--eh-primary);
+  color: var(--eh-white);
+  border-color: var(--eh-primary);
+}
+
+@media (min-width: 768px) {
+  .eh-search-bar {
+    max-width: 480px;
+    margin-top: 10px;
+  }
+
+  .eh-offer-banner {
+    min-height: 200px;
+    padding: 36px 44px;
+  }
+
+  .eh-offer-copy h2 {
+    font-size: 32px;
+  }
+
+  .eh-offer-copy p {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,97 @@
+.eh-addr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eh-addr-card {
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 14px;
+}
+
+.eh-addr-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.eh-addr-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--eh-primary);
+  background: var(--eh-primary-light);
+  padding: 3px 10px;
+  border-radius: var(--eh-radius-pill);
+}
+
+.eh-addr-default {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--eh-success);
+  background: var(--eh-success-bg);
+  padding: 3px 10px;
+  border-radius: var(--eh-radius-pill);
+}
+
+.eh-addr-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.eh-address-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+}
+
+.eh-address-form h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.eh-address-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--eh-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.eh-address-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-sm);
+  color: var(--eh-text);
+  font: inherit;
+  font-size: 13px;
+}
+
+.eh-address-form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.eh-address-form-actions .eh-btn {
+  flex: 1;
+}
+
+.eh-link--danger {
+  color: var(--eh-danger);
+}
+
+@media (min-width: 768px) {
+  .eh-addr-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}

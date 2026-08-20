@@ -1,0 +1,32 @@
+.eh-wish-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eh-wish-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 12px;
+}
+
+.eh-wish-thumb {
+  background: none;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.eh-wish-info {
+  flex: 1;
+}
+
+.eh-wish-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

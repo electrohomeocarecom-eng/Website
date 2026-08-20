@@ -1,0 +1,164 @@
+.eh-profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: linear-gradient(135deg, var(--eh-primary) 0%, var(--eh-primary-dark) 100%);
+  color: var(--eh-white);
+  position: relative;
+  z-index: 2;
+  height: 60px;
+}
+
+.eh-profile-brand {
+  width: 132px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.eh-profile-menu {
+  position: absolute;
+  top: calc(100% - 4px);
+  right: 20px;
+  width: 190px;
+  padding: 6px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  box-shadow: var(--eh-shadow-float);
+  z-index: 30;
+}
+
+.eh-profile-menu-item {
+  display: block;
+  width: 100%;
+  padding: 11px 12px;
+  border: none;
+  border-radius: var(--eh-radius-sm);
+  background: transparent;
+  color: var(--eh-text);
+  font-size: 13px;
+  text-align: left;
+}
+
+.eh-profile-menu-item:hover,
+.eh-profile-menu-item:focus-visible {
+  background: var(--eh-primary-light);
+  color: var(--eh-primary);
+}
+
+.eh-back-btn--light {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: transparent;
+  color: var(--eh-white);
+}
+
+.eh-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, var(--eh-primary) 0%, var(--eh-primary-dark) 100%);
+  border-radius: 24px 24px 24px 24px;
+  padding: 10px 20px 26px;
+  margin-top: 20px;
+  color: var(--eh-white);
+}
+
+.eh-profile-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--eh-white);
+  color: var(--eh-primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.eh-profile-info {
+  flex: 1;
+}
+
+.eh-profile-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.eh-profile-detail {
+  font-size: 11.5px;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+.eh-profile-edit {
+  display: grid;
+  gap: 12px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.eh-profile-edit label {
+  display: grid;
+  gap: 6px;
+  color: var(--eh-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.eh-profile-edit input {
+  width: 100%;
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-sm);
+  padding: 10px 12px;
+  color: var(--eh-text);
+  font: inherit;
+  font-size: 13px;
+}
+
+.eh-profile-edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.eh-profile-edit-actions .eh-btn {
+  flex: 1;
+}
+
+.eh-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.eh-menu-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 13px 16px;
+  width: 100%;
+  text-align: left;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.eh-menu-icon {
+  font-size: 15px;
+  width: 20px;
+}
+
+.eh-menu-label {
+  flex: 1;
+}
+
+.eh-menu-row--danger {
+  color: var(--eh-danger);
+}

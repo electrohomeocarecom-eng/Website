@@ -1,0 +1,73 @@
+.eh-address-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 14px;
+}
+
+.eh-address-info {
+  flex: 1;
+}
+
+.eh-address-name {
+  font-weight: 600;
+  font-size: 13.5px;
+  margin-bottom: 3px;
+}
+
+.eh-address-line {
+  font-size: 12px;
+  color: var(--eh-text-muted);
+  line-height: 1.5;
+}
+
+.eh-radio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--eh-border);
+  display: inline-block;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.eh-radio--checked {
+  border-color: var(--eh-primary);
+  background: radial-gradient(circle, var(--eh-primary) 0 40%, transparent 42%);
+}
+
+.eh-payment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eh-payment-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 13px 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.eh-secure-note {
+  text-align: center;
+  font-size: 11px;
+  color: var(--eh-text-muted);
+  margin-top: 10px;
+}
+
+@media (min-width: 900px) {
+  .eh-address-card,
+  .eh-payment-list,
+  .eh-summary-card {
+    max-width: 620px;
+  }
+}

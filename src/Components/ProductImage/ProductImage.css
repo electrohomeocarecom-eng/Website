@@ -1,0 +1,30 @@
+.product-img-wrap {
+  background: linear-gradient(180deg, #FBEAF1 0%, #F6E4EF 100%);
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-img-wrap--empty {
+  border-radius: var(--eh-radius-md);
+  background: var(--eh-primary-light);
+  padding: 6px;
+  text-align: center;
+}
+
+.product-img-soon {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--eh-primary);
+  line-height: 1.3;
+  white-space: pre-line;
+}

@@ -1,0 +1,91 @@
+.eh-cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eh-cart-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 12px;
+}
+
+.eh-cart-row-info {
+  flex: 1;
+}
+
+.eh-cart-row-name {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.eh-cart-row-sub {
+  font-size: 11px;
+  color: var(--eh-text-muted);
+  margin: 2px 0;
+}
+
+.eh-cart-row-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--eh-primary);
+}
+
+.eh-cart-row-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.eh-cart-remove {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: var(--eh-text-muted);
+  align-self: flex-end;
+}
+
+.eh-qty-stepper--sm {
+  padding: 4px 10px;
+  gap: 10px;
+}
+
+.eh-coupon-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.eh-input {
+  flex: 1;
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-pill);
+  padding: 10px 16px;
+  font-size: 13px;
+  background: var(--eh-white);
+}
+
+.eh-coupon-msg {
+  font-size: 12px;
+  color: var(--eh-danger);
+  margin-top: 6px;
+}
+
+.eh-coupon-msg--active {
+  color: var(--eh-success);
+}
+
+@media (min-width: 900px) {
+  .eh-cart-list {
+    max-width: 620px;
+  }
+
+  .eh-coupon-row {
+    max-width: 620px;
+  }
+}

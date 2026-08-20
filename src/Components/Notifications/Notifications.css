@@ -1,0 +1,63 @@
+.eh-notif-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--eh-text-muted);
+  margin-bottom: 14px;
+}
+
+.eh-notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eh-notif-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 14px;
+}
+
+.eh-notif-row--unread {
+  background: var(--eh-primary-light);
+  border-color: transparent;
+}
+
+.eh-notif-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--eh-primary);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.eh-notif-body {
+  flex: 1;
+}
+
+.eh-notif-title {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.eh-notif-text {
+  font-size: 12px;
+  color: var(--eh-text-muted);
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.eh-notif-time {
+  font-size: 10.5px;
+  color: var(--eh-text-muted);
+  margin-top: 6px;
+}

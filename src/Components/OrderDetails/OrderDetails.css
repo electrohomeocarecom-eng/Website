@@ -1,0 +1,31 @@
+.eh-order-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eh-order-item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 10px 12px;
+}
+
+.eh-order-item-info {
+  flex: 1;
+}
+
+.eh-order-item-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--eh-primary);
+  margin-right: 10px;
+}
+
+.eh-order-item-qty {
+  font-size: 11.5px;
+  color: var(--eh-text-muted);
+}

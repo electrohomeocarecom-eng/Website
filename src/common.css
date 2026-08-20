@@ -1,0 +1,329 @@
+/* Shared layout shell -------------------------------------------------- */
+.eh-app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--eh-bg);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.04);
+}
+
+.eh-screen {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.eh-page {
+  padding: 16px 20px 24px;
+  flex: 1;
+}
+
+/* Desktop layout ----------------------------------------------------------
+   Below ~768px the app stays the mobile single-column shell above.
+   From 768px up, the bottom tab bar becomes a persistent left sidebar
+   (see MobileNav.css) and page content centers with more breathing room. */
+@media (min-width: 768px) {
+  .eh-app {
+    max-width: 1200px;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 232px minmax(0, 1fr);
+    box-shadow: none;
+    border-left: 1px solid var(--eh-border);
+    border-right: 1px solid var(--eh-border);
+  }
+
+  .eh-screen {
+    min-height: 100vh;
+  }
+
+  .eh-page {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 40px 56px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .eh-page {
+    max-width: 1020px;
+  }
+}
+
+/* Buttons ---------------------------------------------------------------- */
+.eh-btn {
+  border: none;
+  border-radius: var(--eh-radius-pill);
+  padding: 13px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.eh-btn--primary {
+  background: var(--eh-primary);
+  color: var(--eh-white);
+}
+
+.eh-btn--outline {
+  background: var(--eh-white);
+  color: var(--eh-primary);
+  border: 1.5px solid var(--eh-primary);
+}
+
+.eh-btn--light {
+  background: var(--eh-white);
+  color: var(--eh-primary);
+  width: auto;
+  padding: 9px 18px;
+  font-size: 13px;
+}
+
+.eh-btn--sm {
+  width: auto;
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+.eh-link {
+  background: none;
+  border: none;
+  color: var(--eh-primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Section headers ---------------------------------------------------------- */
+.eh-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0 12px;
+}
+
+.eh-section-head h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Scroll row / grid of product cards --------------------------------------- */
+.eh-scroll-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.eh-scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+.eh-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media (min-width: 768px) {
+  .eh-grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 16px;
+  }
+
+  .eh-scroll-row {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .eh-mini-card {
+    min-width: 150px;
+  }
+}
+
+.eh-mini-card {
+  position: relative;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 12px;
+  min-width: 108px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
+}
+
+.eh-mini-card--grid {
+  min-width: 0;
+}
+
+.eh-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--eh-primary);
+  color: var(--eh-white);
+  font-size: 8px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--eh-radius-pill);
+  letter-spacing: 0.4px;
+}
+
+.eh-mini-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--eh-text);
+}
+
+.eh-mini-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--eh-primary);
+}
+
+/* Product grid card with heart / add button ------------------------------- */
+.eh-product-card {
+  position: relative;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 14px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.eh-product-card-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.eh-heart-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 15px;
+  color: var(--eh-text-muted);
+}
+
+.eh-product-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.eh-product-sub {
+  font-size: 11px;
+  color: var(--eh-text-muted);
+  margin-top: -4px;
+}
+
+.eh-product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.eh-price {
+  font-weight: 700;
+  color: var(--eh-primary);
+  font-size: 14px;
+}
+
+.eh-round-add {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--eh-primary);
+  background: var(--eh-white);
+  color: var(--eh-primary);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* Status badges (orders) --------------------------------------------------- */
+.eh-status {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--eh-radius-pill);
+}
+
+.eh-status--delivered {
+  background: var(--eh-success-bg);
+  color: var(--eh-success);
+}
+
+.eh-status--processing {
+  background: var(--eh-warning-bg);
+  color: var(--eh-warning);
+}
+
+.eh-status--shipped {
+  background: var(--eh-info-bg);
+  color: var(--eh-info);
+}
+
+.eh-status--cancelled {
+  background: var(--eh-danger-bg);
+  color: var(--eh-danger);
+}
+
+/* Summary rows (cart / checkout / order details) --------------------------- */
+.eh-summary-card {
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.eh-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--eh-text-muted);
+  margin-bottom: 8px;
+}
+
+.eh-summary-row--total {
+  color: var(--eh-text);
+  font-weight: 700;
+  font-size: 15px;
+  border-top: 1px dashed var(--eh-border);
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+/* Generic list card wrapper ------------------------------------------------- */
+.eh-card {
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 16px;
+}
+
+.eh-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--eh-text-muted);
+}

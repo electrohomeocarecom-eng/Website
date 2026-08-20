@@ -1,0 +1,21 @@
+.eh-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eh-filter-btn {
+  border: 1px solid var(--eh-border);
+  background: var(--eh-white);
+  padding: 8px 14px;
+  border-radius: var(--eh-radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--eh-text);
+}
+
+.eh-filter-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--eh-text-muted);
+}

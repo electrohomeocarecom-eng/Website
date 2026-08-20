@@ -1,0 +1,94 @@
+.eh-pm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eh-pm-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+  padding: 14px;
+}
+
+.eh-pm-icon {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--eh-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.eh-pm-info {
+  flex: 1;
+}
+
+.eh-pm-label {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.eh-pm-detail {
+  font-size: 11.5px;
+  color: var(--eh-text-muted);
+  margin-top: 2px;
+}
+
+.eh-payment-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--eh-white);
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-md);
+}
+
+.eh-payment-form h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.eh-payment-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--eh-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.eh-payment-form input,
+.eh-payment-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--eh-border);
+  border-radius: var(--eh-radius-sm);
+  background: var(--eh-white);
+  color: var(--eh-text);
+  font: inherit;
+  font-size: 13px;
+}
+
+.eh-payment-form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.eh-payment-form-actions .eh-btn {
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .eh-pm-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}

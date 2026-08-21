@@ -5,7 +5,7 @@ import ProductImage from "../ProductImage/ProductImage";
 import { getProductImageIndex } from "../../data/data";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
-import { getCategory, getProductsByCategory } from "../../data/data";
+import { useCatalog } from "../../context/CatalogContext";
 import "./CategoryProducts.css";
 
 export default function CategoryProducts() {
@@ -13,6 +13,7 @@ export default function CategoryProducts() {
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const { wishlistItems, toggleWishlist } = useWishlist();
+  const { getCategory, getProductsByCategory } = useCatalog();
   const [showNewOnly, setShowNewOnly] = useState(false);
   const [sortBy, setSortBy] = useState("default");
 
@@ -80,7 +81,7 @@ export default function CategoryProducts() {
                   <span className="eh-tag" style={{ position: "absolute", top: 10, left: 10 }}>
                     {p.tag}
                   </span>
-                  <ProductImage category={p.category} index={getProductImageIndex(p)} alt={p.name} size={70} />
+                  <ProductImage category={p.category} index={getProductImageIndex(p)} src={p.image} alt={p.name} size={70} />
                 </button>
                 <button
                   className="eh-product-name-wrap"

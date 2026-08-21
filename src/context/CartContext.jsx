@@ -1,11 +1,13 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
-import { getProduct } from "../data/data";
+import { useCatalog } from "./CatalogContext";
 
 const CartContext = createContext(null);
 
 const DELIVERY_FEE = 40;
 
 export function CartProvider({ children }) {
+  const { getProduct } = useCatalog();
+
   // lines: [{ productId, qty }]
   const [lines, setLines] = useState([
     { productId: "rhus-tox", qty: 1 },
@@ -52,7 +54,8 @@ export function CartProvider({ children }) {
       lines
         .map((l) => ({ ...l, product: getProduct(l.productId) }))
         .filter((l) => l.product),
-    [lines]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [lines, getProduct]
   );
 
   const itemCount = useMemo(

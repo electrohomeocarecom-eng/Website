@@ -2,14 +2,15 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import ProductImage from "../ProductImage/ProductImage";
-import { getProductImageIndex } from "../../data/data";
-import { deliveryAddress, getOrder, getProduct } from "../../data/data";
+import { getProductImageIndex, deliveryAddress, getOrder } from "../../data/data";
+import { useCatalog } from "../../context/CatalogContext";
 import "./OrderDetails.css";
 
 const statusClass = (status) => `eh-status eh-status--${status.toLowerCase()}`;
 
 export default function OrderDetails() {
   const { orderId } = useParams();
+  const { getProduct } = useCatalog();
   const order = getOrder(orderId);
 
   if (!order) {
@@ -55,7 +56,7 @@ export default function OrderDetails() {
             if (!product) return null;
             return (
               <div key={line.id} className="eh-order-item-row">
-                <ProductImage category={product.category} index={getProductImageIndex(product)} alt={product.name} size={46} />
+                <ProductImage category={product.category} index={getProductImageIndex(product)} src={product.image} alt={product.name} size={46} />
                 <div className="eh-order-item-info">
                   <div className="eh-cart-row-name">{product.name}</div>
                   <div className="eh-cart-row-sub">Face Drops</div>

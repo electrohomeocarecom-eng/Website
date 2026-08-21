@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
-import { categories } from "../../data/data";
+import { useCatalog } from "../../context/CatalogContext";
 import { getCategoryImage } from "../../utils/productImages";
 import "./Categories.css";
 
 export default function Categories() {
   const navigate = useNavigate();
+  const { categories, getProductsByCategory } = useCatalog();
 
   return (
     <div className="eh-screen">
@@ -27,7 +28,7 @@ export default function Categories() {
               <div className="eh-cat-row-info">
                 <div className="eh-cat-row-name">{c.name}</div>
                 <div className="eh-cat-row-tagline">{c.tagline}</div>
-                <div className="eh-cat-row-count">{c.count} Products</div>
+                <div className="eh-cat-row-count">{getProductsByCategory(c.id).length} Products</div>
               </div>
               <span className="eh-cat-row-arrow">›</span>
             </button>

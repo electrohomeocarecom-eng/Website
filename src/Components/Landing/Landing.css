@@ -115,6 +115,31 @@
   border-color: var(--eh-primary);
 }
 
+.eh-offer-banner--has-image {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.eh-offer-banner--has-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 8, 40, 0.25) 0%, rgba(20, 8, 40, 0.6) 100%);
+  border-radius: inherit;
+}
+
+.eh-offer-banner--has-image .eh-offer-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.eh-offer-banner--has-image .eh-offer-eyebrow,
+.eh-offer-banner--has-image .eh-offer-copy h2,
+.eh-offer-banner--has-image .eh-offer-copy p {
+  color: var(--eh-white);
+}
+
 @media (min-width: 768px) {
   .eh-search-bar {
     max-width: 480px;

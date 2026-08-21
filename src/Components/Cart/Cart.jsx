@@ -46,7 +46,7 @@ export default function Cart() {
             <div className="eh-cart-list">
               {cartItems.map(({ product, qty }) => (
                 <div key={product.id} className="eh-cart-row">
-                  <ProductImage category={product.category} index={getProductImageIndex(product)} alt={product.name} size={54} />
+                  <ProductImage category={product.category} index={getProductImageIndex(product)} src={product.image} alt={product.name} size={54} />
                   <div className="eh-cart-row-info">
                     <div className="eh-cart-row-name">{product.name}</div>
                     <div className="eh-cart-row-sub">Face Drops</div>

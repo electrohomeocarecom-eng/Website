@@ -4,15 +4,18 @@ import Header from "../Header/Header";
 import ProductImage from "../ProductImage/ProductImage";
 import { getProductImageIndex } from "../../data/data";
 import { useCart } from "../../context/CartContext";
-import { badges, getProduct } from "../../data/data";
+import { useWishlist } from "../../context/WishlistContext";
+import { useCatalog } from "../../context/CatalogContext";
+import { badges } from "../../data/data";
 import "./ProductDetails.css";
 
 export default function ProductDetails() {
   const { productId } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { wishlistItems, toggleWishlist } = useWishlist();
+  const { getProduct } = useCatalog();
   const [qty, setQty] = useState(1);
-  const [liked, setLiked] = useState(false);
 
   const product = getProduct(productId);
 
@@ -24,6 +27,8 @@ export default function ProductDetails() {
       </div>
     );
   }
+
+  const liked = wishlistItems.some((item) => item.id === product.id);
 
   const handleAddToCart = () => addToCart(product.id, qty);
   const handleBuyNow = () => {
@@ -39,14 +44,16 @@ export default function ProductDetails() {
           <span className="eh-tag">{product.tag}</span>
           <button
             className="eh-pd-like"
-            onClick={() => setLiked((v) => !v)}
+            onClick={() => toggleWishlist(product.id)}
             aria-label="Toggle wishlist"
+            aria-pressed={liked}
           >
             {liked ? "♥" : "♡"}
           </button>
           <ProductImage
             category={product.category}
             index={getProductImageIndex(product)}
+            src={product.image}
             alt={product.name}
             size={280}
             className="eh-pd-product-image"

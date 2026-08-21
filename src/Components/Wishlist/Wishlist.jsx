@@ -40,7 +40,7 @@ export default function Wishlist() {
                 onClick={() => navigate(`/product/${p.id}`)}
                 aria-label={p.name}
               >
-                <ProductImage category={p.category} index={getProductImageIndex(p)} alt={p.name} size={54} />
+                <ProductImage category={p.category} index={getProductImageIndex(p)} src={p.image} alt={p.name} size={54} />
               </button>
               <div className="eh-wish-info">
                 <div className="eh-cart-row-name">{p.name}</div>

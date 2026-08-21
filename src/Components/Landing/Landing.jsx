@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import ProductImage from "../ProductImage/ProductImage";
-import { getProductImageIndex } from "../../data/data";
-import { categories, products, trendingIds } from "../../data/data";
+import { getProductImageIndex, trendingIds } from "../../data/data";
+import { useCatalog } from "../../context/CatalogContext";
 import "./Landing.css";
 
 export default function Landing() {
   const navigate = useNavigate();
+  const { products, categories, banner } = useCatalog();
   const [activeCat, setActiveCat] = useState(categories[0].id);
 
   const trending = trendingIds
@@ -30,12 +31,16 @@ export default function Landing() {
           <span className="eh-search-cat">▦ Categories</span>
         </button>
 
-        <div className="eh-offer-banner" onClick={() => navigate("/categories")}>
+        <div
+          className={`eh-offer-banner ${banner.image ? "eh-offer-banner--has-image" : ""}`}
+          style={banner.image ? { backgroundImage: `url(${banner.image})` } : undefined}
+          onClick={() => navigate("/categories")}
+        >
           <div className="eh-offer-copy">
-            <div className="eh-offer-eyebrow">PURE • SAFE • EFFECTIVE</div>
-            <h2>OFFER ZONE</h2>
-            <p>Care that comes naturally.</p>
-            <button className="eh-btn eh-btn--light">Shop Now</button>
+            <div className="eh-offer-eyebrow">{banner.eyebrow}</div>
+            <h2>{banner.title}</h2>
+            <p>{banner.subtitle}</p>
+            <button className="eh-btn eh-btn--light">{banner.cta}</button>
           </div>
         </div>
         <div className="eh-dots">
@@ -58,7 +63,7 @@ export default function Landing() {
               onClick={() => navigate(`/product/${p.id}`)}
             >
               <span className="eh-tag">{p.tag}</span>
-              <ProductImage category={p.category} index={getProductImageIndex(p)} alt={p.name} size={64} />
+              <ProductImage category={p.category} index={getProductImageIndex(p)} src={p.image} alt={p.name} size={64} />
               <div className="eh-mini-name">{p.name}</div>
               <div className="eh-mini-price">₹{p.price}</div>
             </button>
@@ -80,23 +85,23 @@ export default function Landing() {
         </div>
 
         {filtered.length === 0 ? (
-  <div className="eh-empty">New products coming soon</div>
-) : (
-  <div className="eh-grid-2">
-    {filtered.map((p) => (
-      <button
-        key={p.id}
-        className="eh-mini-card eh-mini-card--grid"
-        onClick={() => navigate(`/product/${p.id}`)}
-      >
-        <span className="eh-tag">{p.tag}</span>
-        <ProductImage category={p.category} index={getProductImageIndex(p)} alt={p.name} size={56} />
-        <div className="eh-mini-name">{p.name}</div>
-        <div className="eh-mini-price">₹{p.price}</div>
-      </button>
-    ))}
-  </div>
-)}
+          <div className="eh-empty">New products coming soon</div>
+        ) : (
+          <div className="eh-grid-2">
+            {filtered.map((p) => (
+              <button
+                key={p.id}
+                className="eh-mini-card eh-mini-card--grid"
+                onClick={() => navigate(`/product/${p.id}`)}
+              >
+                <span className="eh-tag">{p.tag}</span>
+                <ProductImage category={p.category} index={getProductImageIndex(p)} src={p.image} alt={p.name} size={56} />
+                <div className="eh-mini-name">{p.name}</div>
+                <div className="eh-mini-price">₹{p.price}</div>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

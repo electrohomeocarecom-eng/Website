@@ -1,72 +1,69 @@
-# Electro Homeo Care — E-commerce Frontend
+# Electro Homeo Care
 
-A complete React implementation of the mobile UI/UX design: Home, Categories,
-Category Products, Product Details, Cart, Checkout, My Orders, Order Details,
-and Profile — with working add-to-cart, quantity steppers, coupon field, and
-routing between every screen.
-
-## Run it standalone
+## Run it
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open the printed local URL (defaults to `http://localhost:5173`).
-It's a normal Vite + React app, so `npm run build` produces a static
-`dist/` folder you can deploy anywhere.
+## Admin Portal
 
-## Folder structure
-
-Mirrors the pattern from your other project — one folder per component,
-each with its own `.jsx` and `.css`:
+Go to **`/admin`** (e.g. `http://localhost:5173/#/admin`). Default passcode:
 
 ```
-src/
-  Components/
-    Header/            top bar (brand variant on Home, back+cart on others)
-    MobileNav/          bottom tab bar
-    BottleIcon/         shared placeholder product illustration
-    Landing/            Home screen
-    Categories/         category list
-    CategoryProducts/   products within a category (filter/sort + grid)
-    ProductDetails/      single product page
-    Cart/                cart, coupon, order summary
-    Checkout/            address, payment method, place order
-    Orders/              order history with status filters
-    OrderDetails/        single order breakdown
-    Profile/             account menu
-  context/
-    CartContext.jsx      global cart state (add/update/remove/coupon/totals)
-  data/
-    data.js              mock products, categories, orders — swap for your API
-  theme.css              design tokens (colors, radii, shadows, font)
-  common.css              shared classes reused across screens (cards, buttons, grids)
-  App.jsx                 routes
-  main.jsx                 entry point
+electro-admin
 ```
 
-## Wiring up to a real backend
+Change it in `src/admin/AdminApp.jsx` (`ADMIN_PASSCODE`).
 
-Everything reads from `src/data/data.js` and `src/context/CartContext.jsx`.
-To connect real data:
+**⚠️ This is a soft client-side gate, not real authentication.** Anyone who
+opens devtools/localStorage can see or bypass it. It's meant to keep the
+admin screens out of casual reach during development — swap it for real
+auth (a login API + server-verified session) before this handles real
+customers or inventory.
 
-1. Replace the arrays in `data.js` with API calls (e.g. React Query or a
-   simple `fetch` in `useEffect`) — every component already imports through
-   `getProduct`, `getCategory`, `getProductsByCategory`, etc., so you can
-   keep those function names and just change what's inside them.
-2. In `CartContext.jsx`, swap the in-memory `lines` state for calls to your
-   cart/order API inside `addToCart`, `updateQty`, `removeFromCart`.
-3. `Checkout.jsx`'s `handlePlaceOrder` is where you'd POST the order before
-   navigating to `/orders`.
-4. `BottleIcon` is a placeholder illustration — swap it for `<img src={product.image} />`
-   once you have real product photography.
+### What you can do from `/admin`
 
-## Notes
+- **Dashboard** (`/admin`) — product & category counts, banner status.
+- **Products** (`/admin/products`) — add a new product (name, category,
+  price, tag, description, optional image), edit any existing product's
+  price inline, swap a product's image, or delete a product.
+- **Offer Banner** (`/admin/banner`) — edit the Home screen's hero banner
+  text and optionally upload a custom background image, with a live
+  preview before saving.
 
-- Routing uses `HashRouter` so it works without any server config; switch to
-  `BrowserRouter` if your host supports client-side routing rewrites.
-- The whole shell is capped at 480px (`--eh-app` in `common.css`) to match the
-  mobile mockups — remove that constraint if you want a responsive desktop
-  layout too.
-- A `SAVE10` coupon code is wired up in `CartContext.jsx` as a working example.
+Every change here shows up on the storefront immediately — Products,
+Categories, Cart, Product Details, etc. all read from the same shared
+catalog.
+
+### How it persists
+
+There's no backend yet, so admin edits are saved to the browser's
+**localStorage** (`eh_admin_products_v1` and `eh_admin_banner_v1`). That
+means:
+
+- Changes survive page reloads on the same browser/device.
+- They are **not** shared across devices or visitors — this is a
+  prototype persistence layer, not a database.
+- Uploaded images are stored as base64 data URLs. Fine for a handful of
+  product photos; for a lot of large images you'll want real file
+  storage (S3, Cloudinary, etc.) before going live.
+
+To clear all admin changes and go back to the defaults in `src/data/data.js`,
+clear those two localStorage keys (devtools → Application → Local Storage)
+or run this in the browser console:
+
+```js
+localStorage.removeItem("eh_admin_products_v1");
+localStorage.removeItem("eh_admin_banner_v1");
+```
+
+### Wiring up a real backend later
+
+All admin state lives behind `src/context/CatalogContext.jsx`. Its public
+shape (`products`, `banner`, `addProduct`, `updateProduct`, `deleteProduct`,
+`updateBanner`) is what the rest of the app depends on — swap the
+localStorage read/write inside that file for real API calls and nothing
+else in the app needs to change. Same idea for auth: replace the
+`ADMIN_PASSCODE` check in `src/admin/AdminApp.jsx` with a real login call.

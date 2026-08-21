@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
-import { getProduct } from "../data/data";
+import { useCatalog } from "./CatalogContext";
 
 const WishlistContext = createContext(null);
 
 export function WishlistProvider({ children }) {
+  const { getProduct } = useCatalog();
   const [wishlistIds, setWishlistIds] = useState([]);
 
   const toggleWishlist = (productId) => {
@@ -14,13 +15,16 @@ export function WishlistProvider({ children }) {
     );
   };
 
+  const isWishlisted = (productId) => wishlistIds.includes(productId);
+
   const wishlistItems = useMemo(
     () => wishlistIds.map((id) => getProduct(id)).filter(Boolean),
-    [wishlistIds]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [wishlistIds, getProduct]
   );
 
   return (
-    <WishlistContext.Provider value={{ wishlistItems, toggleWishlist }}>
+    <WishlistContext.Provider value={{ wishlistItems, toggleWishlist, isWishlisted }}>
       {children}
     </WishlistContext.Provider>
   );
